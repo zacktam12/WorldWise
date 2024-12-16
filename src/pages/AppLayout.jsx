@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import AppNav from "../components/AppNav";
 import Map from "../components/Map";
 import SideBar from "../components/SideBar";
