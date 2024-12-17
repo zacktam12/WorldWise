@@ -7,7 +7,7 @@ const formatDate = (date) =>
     month: "long",
     year: "numeric",
   }).format(new Date(date));
-function CityItem({ x }) {
+function CityItem({ city }) {
   const { emoji, cityName, date, id, position } = city;
   return (
     <li>
