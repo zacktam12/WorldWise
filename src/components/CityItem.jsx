@@ -7,11 +7,15 @@ const formatDate = (date) =>
     month: "long",
     year: "numeric",
   }).format(new Date(date));
-function CityItem({ city }) {
-  const { emoji, cityName, date, id } = city;
+function CityItem({ x }) {
+  const { emoji, cityName, date, id, position } = city;
   return (
     <li>
-      <Link className={styles.cityItem} to={`${id}`}>
+      <Link
+        className={styles.cityItem}
+        //using  query string
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+      >
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
