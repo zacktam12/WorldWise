@@ -8,7 +8,7 @@ const formatDate = (date) =>
     year: "numeric",
   }).format(new Date(date));
 function CityItem({ city }) {
-  const { emoji, cityName, date, id, position } = city;
+  const { emoji, cityName, date, id, position, type } = city;
   return (
     <li>
       <Link

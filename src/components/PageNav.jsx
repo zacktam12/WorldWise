@@ -6,7 +6,6 @@ function PageNav() {
   return (
     <nav className={styles.nav}>
       <Logo />
-
       <ul>
         <li>
           <NavLink to="/product">product</NavLink>
