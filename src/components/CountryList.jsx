@@ -1,8 +1,11 @@
 import Spinner from "./Spinner";
 import CountryItem from "./CountryItem";
 import styles from "./countryList.module.css";
+import { useCities } from "../contexts/CitiesContext";
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
+
   if (isLoading) return <Spinner />;
 
   const countries = cities.reduce((arr, city) => {
