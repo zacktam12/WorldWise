@@ -45,11 +45,11 @@ function Map() {
   return (
     <div className={styles.mapContainer}>
       {" "}
-      (
-      <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "loading..." : "use your position"}
-      </Button>
-      )
+      {!geoLocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "loading..." : "use your position"}
+        </Button>
+      )}
       <MapContainer
         className={styles.map}
         // center={[mapLat, mapLng]}
