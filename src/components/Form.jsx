@@ -29,6 +29,8 @@ function Form() {
         setIsLodingGeocoding(true);
         const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
         const data = await res.json();
+        setCityName(data.city || data.locality || "");
+        setCountry(data.countryName);
       } catch (err) {
         console.err("ss");
       } finally {
