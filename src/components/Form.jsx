@@ -13,12 +13,13 @@ export function convertToEmoji(countryCode) {
     .toUpperCase()
     .split("")
     .map((char) => 127397 + char.charCodeAt());
+
   return String.fromCodePoint(...codePoints);
 }
 const BASE_URL = `https://api.bigdatacloud.net/data/reverse-geocode-client`;
 function Form() {
   const [lat, lng] = UseUrlPosition();
-  console.log(lat);
+  console.log(convertToEmoji("US")); // Should log 🇺🇸
 
   const [isLodingGeocoding, setIsLodingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");

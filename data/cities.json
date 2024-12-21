@@ -3,7 +3,7 @@
     {
       "cityName": "Lisbon",
       "country": "Portugal",
-      "emoji": "PT",
+      "emoji": "🇵🇹",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
@@ -28,7 +28,7 @@
     {
       "cityName": "Berlin",
       "country": "Germany",
-      "emoji": "GR",
+      "emoji": "🇩🇪",
       "date": "2027-02-31T15:59:59.138Z",
       "notes": "Amazing ",
       "position": {

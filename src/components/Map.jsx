@@ -13,6 +13,7 @@ import { useGeolocation } from "../Hooks/UseGeoLocation";
 import { UseUrlPosition } from "../Hooks/UseUrlPosition";
 import Button from "./Button";
 import styles from "./Map.module.css";
+import { map } from "leaflet";
 
 function Map() {
   const { cities } = useCities();
@@ -25,13 +26,13 @@ function Map() {
     getPosition,
   } = useGeolocation();
 
-  const [mapLat, mapLng] = UseUrlPosition();
+  const [lat, lng] = UseUrlPosition();
+
   useEffect(
     function () {
-      if (mapLat && mapLng)
-        setMapPosition([parseFloat(mapLat), parseFloat(mapLng)]);
+      if (lat && lng) setMapPosition([parseFloat(lat), parseFloat(lng)]);
     },
-    [mapLat, mapLng]
+    [lat, lng]
   );
 
   useEffect(
@@ -41,18 +42,31 @@ function Map() {
     },
     [geoLocationPosition]
   );
+  // useEffect(() => {
+  //   if (cities.length > 0) {
+  //     const bounds = cities.map((city) => [
+  //       city.position.lat,
+  //       city.position.lng,
+  //     ]);
+  //     map.fitBounds(bounds);
+  //   }
+  // }, [cities]);
 
   return (
     <div className={styles.mapContainer}>
       {" "}
       {!geoLocationPosition && (
-        <Button type="position" onClick={getPosition}>
+        <Button
+          type="position"
+          onClick={getPosition}
+          disabled={isLoadingPosition}
+        >
           {isLoadingPosition ? "loading..." : "use your position"}
         </Button>
       )}
       <MapContainer
         className={styles.map}
-        // center={[mapLat, mapLng]}
+        // center={[lat, lng]}
         center={mapPositon}
         zoom={13}
         scrollWheelZoom={true}
@@ -80,7 +94,12 @@ function Map() {
 }
 function ChangeCenter({ position }) {
   const map = useMap();
-  map.setView(position);
+  useEffect(
+    function () {
+      map.setView(position);
+    },
+    [position, map]
+  );
   return null;
 }
 
