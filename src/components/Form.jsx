@@ -10,6 +10,7 @@ import styles from "./Form.module.css";
 import BackButton from "./BackButton";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import { useCities } from "../contexts/CitiesContext";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -22,8 +23,7 @@ export function convertToEmoji(countryCode) {
 const BASE_URL = `https://api.bigdatacloud.net/data/reverse-geocode-client`;
 function Form() {
   const [lat, lng] = UseUrlPosition();
-  console.log(convertToEmoji("US")); // Should log 🇺🇸
-
+  const { createCity } = useCities();
   const [isLodingGeocoding, setIsLodingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
@@ -60,6 +60,18 @@ function Form() {
     },
     [lat, lng]
   );
+  if (!cityName || !date) return;
+
+  const newCity = {
+    cityName,
+    country,
+    emoji,
+    date,
+    position: { lat, lng },
+    notes,
+  };
+  createCity(newCity);
+
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -82,12 +94,16 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          onChange={(date) => setDate(date)}
+          selected={date}
+          dateFormat="dd/MM/yyyy"
         />
-        <DatePicker />
       </div>
 
       <div className={styles.row}>
