@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import { UseUrlPosition } from "../Hooks/UseUrlPosition";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import Button from "./Button";
 import styles from "./Form.module.css";
 import BackButton from "./BackButton";
@@ -57,10 +60,16 @@ function Form() {
     },
     [lat, lng]
   );
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  if (!lat && !lng)
+    return <Message message="Start by clicking somewhere on the map" />;
   if (isLodingGeocoding) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -78,6 +87,7 @@ function Form() {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
+        <DatePicker />
       </div>
 
       <div className={styles.row}>
