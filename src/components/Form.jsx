@@ -6,6 +6,7 @@ import Button from "./Button";
 import styles from "./Form.module.css";
 import BackButton from "./BackButton";
 import Message from "./Message";
+import Spinner from "./Spinner";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -55,6 +56,7 @@ function Form() {
     },
     [lat, lng]
   );
+  if (isLodingGeocoding) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
   return (
     <form className={styles.form}>
