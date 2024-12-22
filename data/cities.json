@@ -11,6 +11,18 @@
         "lng": "-0.09235382080078126"
       },
       "notes": "ssss"
+    },
+    {
+      "id": "973f",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-22T22:12:12.806Z",
+      "position": {
+        "lat": "51.495385348889776",
+        "lng": "-0.09578704833984376"
+      },
+      "notes": "d"
     }
   ]
 }
