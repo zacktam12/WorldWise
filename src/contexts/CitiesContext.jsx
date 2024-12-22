@@ -11,6 +11,7 @@ const intialState = {
 function reducer(state, action) {
 
   switch(action.type){
+    
     case "loading":
       return{
         ...state,isLoading:true
@@ -26,15 +27,13 @@ function reducer(state, action) {
       ...state,isLoading:false,currentCity:action.payLoad
     };
     case "city/deleted":
-      return{
-        ...state,
+           return { ...state,isLoading:false, cities:state.cities.filter((city) => city.id !== action.payload),
+
       }
-    case "error":
-      return { ...state,isLoading:false, cities:state.cities.filter((city) => city.id !== action.payload),
-};
+   
     case "rejected":
       return{
-        ...state,error:
+        ...state,error:action.payLoad,isLoading:false
       }
   
   default:
@@ -67,7 +66,6 @@ function CitiesProvider({ children }) {
 
   async function getCity(id) {
           dispatch({type:"loading"})
-
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
@@ -92,8 +90,7 @@ function CitiesProvider({ children }) {
 dispatch({type:"cities/created" ,payload:data})   
 
 } catch (e) {
-        dispatch({type:"rejected" ,payLoad:"There was an error creating city..."
-    } 
+        dispatch({type:"rejected" ,payLoad:"There was an error creating city..."}) 
   }
 
   async function deleteCity(id) {
@@ -128,4 +125,5 @@ function useCities() {
   if (!context) throw new Error("cities conxet is using outside cityProvider");
   return context;
 }
+
 export { CitiesProvider, useCities };
