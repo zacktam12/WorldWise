@@ -11,6 +11,7 @@ import BackButton from "./BackButton";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import { useCities } from "../contexts/CitiesContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -22,8 +23,9 @@ export function convertToEmoji(countryCode) {
 }
 const BASE_URL = `https://api.bigdatacloud.net/data/reverse-geocode-client`;
 function Form() {
+  const navigate = useNavigate();
   const [lat, lng] = UseUrlPosition();
-  const { createCity } = useCities();
+  const { createCity, isLoading } = useCities();
   const [isLodingGeocoding, setIsLodingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
@@ -60,28 +62,32 @@ function Form() {
     },
     [lat, lng]
   );
-  if (!cityName || !date) return;
 
-  const newCity = {
-    cityName,
-    country,
-    emoji,
-    date,
-    position: { lat, lng },
-    notes,
-  };
-  createCity(newCity);
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-  }
 
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      position: { lat, lng },
+      notes,
+    };
+    await createCity(newCity);
+    navigate("/app/cities");
+  }
   if (!lat && !lng)
     return <Message message="Start by clicking somewhere on the map" />;
   if (isLodingGeocoding) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -94,11 +100,7 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        {/* <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        /> */}
+
         <DatePicker
           onChange={(date) => setDate(date)}
           selected={date}
