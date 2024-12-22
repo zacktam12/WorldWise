@@ -23,6 +23,30 @@
         "lng": "-0.09578704833984376"
       },
       "notes": "d"
+    },
+    {
+      "id": "afe8",
+      "cityName": "Westham",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-22T22:13:16.537Z",
+      "position": {
+        "lat": "50.82502352402512",
+        "lng": "0.28152465820312506"
+      },
+      "notes": "de"
+    },
+    {
+      "id": "f920",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-22T22:16:15.851Z",
+      "position": {
+        "lat": "51.49891200625809",
+        "lng": "-0.09132385253906251"
+      },
+      "notes": ""
     }
   ]
 }
