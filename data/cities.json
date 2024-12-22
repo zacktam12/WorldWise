@@ -1,52 +1,16 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "id": "afb0",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-22T19:30:34.803Z",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": "51.51440469156115",
+        "lng": "-0.09235382080078126"
       },
-      "id": "739307567"
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "1346751"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-31T15:59:59.138Z",
-      "notes": "Amazing ",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "755670385"
-    },
-    {
-      "id": "931c",
-      "cityName": "Wuchale",
-      "country": "Ethiopia",
-      "emoji": "🇪🇹",
-      "date": "2024-12-22T18:44:36.241Z",
-      "position": {
-        "lat": "9.752370139173285",
-        "lng": "38.97949218750001"
-      },
-      "notes": "home\n"
+      "notes": "ssss"
     }
   ]
 }

@@ -1,6 +1,6 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 import { useEffect, useState } from "react";
-import { UseUrlPosition } from "../Hooks/UseUrlPosition";
+import { useUrlPosition } from "../Hooks/useUrlPosition";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,7 +11,7 @@ import BackButton from "./BackButton";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import { useCities } from "../contexts/CitiesContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -24,9 +24,9 @@ export function convertToEmoji(countryCode) {
 const BASE_URL = `https://api.bigdatacloud.net/data/reverse-geocode-client`;
 function Form() {
   const navigate = useNavigate();
-  const [lat, lng] = UseUrlPosition();
+  const [lat, lng] = useUrlPosition();
   const { createCity, isLoading } = useCities();
-  const [isLodingGeocoding, setIsLodingGeocoding] = useState(false);
+  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
@@ -38,7 +38,7 @@ function Form() {
     function () {
       async function fetchCityData() {
         try {
-          setIsLodingGeocoding(true);
+          setIsLoadingGeocoding(true);
           setGeocodingError("");
           const res = await fetch(
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
@@ -55,10 +55,10 @@ function Form() {
         } catch (err) {
           setGeocodingError(err.message);
         } finally {
-          setIsLodingGeocoding(false);
+          setIsLoadingGeocoding(false);
         }
       }
-      fetchCityData();
+      if (lat && lng) fetchCityData();
     },
     [lat, lng]
   );
@@ -81,7 +81,7 @@ function Form() {
   }
   if (!lat && !lng)
     return <Message message="Start by clicking somewhere on the map" />;
-  if (isLodingGeocoding) return <Spinner />;
+  if (isLoadingGeocoding) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
   return (
     <form

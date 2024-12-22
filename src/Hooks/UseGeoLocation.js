@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useGeolocation(defaultPosition = null) {
   const [isLoading, setIsLoading] = useState(false);
   const [position, setPosition] = useState(defaultPosition);
   const [error, setError] = useState(null);
+  useEffect(() => {
+    if (defaultPosition) {
+      setPosition(defaultPosition);
+    }
+  }, [defaultPosition]);
+
   function getPosition() {
     if (!navigator.geolocation)
       return setError("Your browser does not support geolocation");
