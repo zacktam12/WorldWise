@@ -26,6 +26,7 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         cities: [...state.cities, action.payload],
+        currentCity: action.payload,
       };
 
     case "city/deleted":
@@ -77,7 +78,7 @@ function CitiesProvider({ children }) {
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
-      dispatch({ type: "city/loaded", payload: data });
+      dispatch({ type: "city/created", payload: data });
     } catch (e) {
       dispatch({
         type: "rejected",
