@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
-const AuthoContext = createContext();
-const intialState = {
+const AuthContext = createContext();
+const initialState = {
   user: null,
   isAuthenticated: false,
 };
@@ -21,10 +21,10 @@ function reducer(state, action) {
   }
 }
 
-function AuthoProvider({ children }) {
+function AuthProvider({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
-    intialState
+    initialState
   );
 
   function Login(email, password) {
@@ -36,14 +36,15 @@ function AuthoProvider({ children }) {
   }
 
   return (
-    <AuthoContext.Provider value={{ user, isAuthenticated, Login, Logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, Login, Logout }}>
       {children}
     </AuthoContext.Provider>
   );
 }
-function useAutho() {
-  const context = useContext(AuthoContext);
+function useAuth() {
+  const context = useContext(AuthContext);
   if (context === undefined)
-    throw new Error("useAuthon must be used within a AuthProvider");
+    throw new Error("useAuth must be used within an AuthProvider");
+  return context;
 }
-export { AuthoProvider, useAutho };
+export { AuthProvider, useAuth };
