@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, Login, Logout }}>
       {children}
-    </AuthoContext.Provider>
+    </AuthContext.Provider>
   );
 }
 function useAuth() {
