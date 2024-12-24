@@ -1,3 +1,16 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "id": "e2b4",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-24T19:37:23.141Z",
+      "position": {
+        "lat": "51.4738989064778",
+        "lng": "-0.09407043457031251"
+      },
+      "notes": ""
+    }
+  ]
 }

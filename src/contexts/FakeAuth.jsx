@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import PropTypes from "prop-types";
 const AuthContext = createContext();
 const initialState = {
   user: null,
@@ -17,7 +18,7 @@ function reducer(state, action) {
     case "logout":
       return { ...state, user: null, isAuthenticated: false };
     default:
-      throw new Error("unknown action type");
+      throw new Error("Incorrect action ");
   }
 }
 
@@ -41,6 +42,10 @@ function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined)

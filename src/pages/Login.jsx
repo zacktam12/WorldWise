@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./Login.module.css";
 import PageNav from "../components/PageNav";
@@ -16,6 +16,10 @@ export default function Login() {
     e.preventDefault();
     if (email && password) login(email, password);
   }
+
+  useEffect(function(),{
+    if(is)
+  })
   return (
     <main className={styles.login}>
       <PageNav />
