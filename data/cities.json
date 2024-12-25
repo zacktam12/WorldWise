@@ -11,6 +11,30 @@
         "lng": "-0.09407043457031251"
       },
       "notes": ""
+    },
+    {
+      "id": "c5a7",
+      "cityName": "Crawley",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-25T18:39:12.496Z",
+      "position": {
+        "lat": "51.106539930027225",
+        "lng": "-0.18230438232421878"
+      },
+      "notes": "vbsV"
+    },
+    {
+      "id": "17a1",
+      "cityName": "East Grinstead",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2024-12-25T18:40:01.212Z",
+      "position": {
+        "lat": "51.125074674086136",
+        "lng": "-0.008926391601562502"
+      },
+      "notes": ""
     }
   ]
 }

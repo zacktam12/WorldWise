@@ -3,11 +3,13 @@ import { useAuth } from "../contexts/FakeAuth";
 import styles from "./User.module.css";
 function User() {
   const navigate = useNavigate();
-  const [user, logout] = useAuth();
+  const { user, logout } = useAuth();
   function handleClick() {
     logout();
-    navigate(true);
+    navigate("/");
   }
+
+  if (!user) return null;
 
   return (
     <div className={styles.user}>
