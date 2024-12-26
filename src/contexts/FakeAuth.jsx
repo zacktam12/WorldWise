@@ -28,16 +28,17 @@ function AuthProvider({ children }) {
     initialState
   );
 
-  function Login(email, password) {
+  function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password)
       dispatch({ type: "login", payload: FAKE_USER });
   }
-  function Logout() {
+
+  function logout() {
     dispatch({ type: "logout" });
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, Login, Logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -48,10 +49,11 @@ AuthProvider.propTypes = {
 };
 function useAuth() {
   const context = useContext(AuthContext);
+
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
-  const { user, logout } = context;
-  return [user, logout];
+
+  return context;
 }
 export { AuthProvider, useAuth };

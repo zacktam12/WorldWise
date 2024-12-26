@@ -1,38 +1,26 @@
 {
   "cities": [
     {
-      "id": "e2b4",
+      "id": "bb9b",
       "cityName": "London",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
-      "date": "2024-12-24T19:37:23.141Z",
+      "date": "2024-12-26T18:12:48.406Z",
       "position": {
-        "lat": "51.4738989064778",
-        "lng": "-0.09407043457031251"
+        "lat": "51.50211782162702",
+        "lng": "-0.09355545043945314"
       },
       "notes": ""
     },
     {
-      "id": "c5a7",
-      "cityName": "Crawley",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "2024-12-25T18:39:12.496Z",
+      "id": "fe26",
+      "cityName": "Sandouville",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-12-26T18:13:09.989Z",
       "position": {
-        "lat": "51.106539930027225",
-        "lng": "-0.18230438232421878"
-      },
-      "notes": "vbsV"
-    },
-    {
-      "id": "17a1",
-      "cityName": "East Grinstead",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "2024-12-25T18:40:01.212Z",
-      "position": {
-        "lat": "51.125074674086136",
-        "lng": "-0.008926391601562502"
+        "lat": "49.47883244071047",
+        "lng": "0.30487060546875006"
       },
       "notes": ""
     }
