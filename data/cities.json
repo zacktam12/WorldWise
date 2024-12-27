@@ -1,26 +1,26 @@
 {
   "cities": [
     {
-      "id": "bb9b",
+      "id": "bde8",
       "cityName": "London",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
-      "date": "2024-12-26T18:12:48.406Z",
+      "date": "2024-12-26T18:24:35.246Z",
       "position": {
-        "lat": "51.50211782162702",
-        "lng": "-0.09355545043945314"
+        "lat": "51.369037926712714",
+        "lng": "-0.10299682617187501"
       },
-      "notes": ""
+      "notes": "b"
     },
     {
-      "id": "fe26",
-      "cityName": "Sandouville",
+      "id": "0684",
+      "cityName": "Cluis",
       "country": "France",
       "emoji": "🇫🇷",
-      "date": "2024-12-26T18:13:09.989Z",
+      "date": "2024-12-26T18:24:48.944Z",
       "position": {
-        "lat": "49.47883244071047",
-        "lng": "0.30487060546875006"
+        "lat": "46.561229857616475",
+        "lng": "1.7138671875000002"
       },
       "notes": ""
     }
