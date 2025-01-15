@@ -1,26 +1,38 @@
 {
   "cities": [
     {
-      "id": "bde8",
+      "id": "3f39",
+      "cityName": "Magnac-Laval",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-01-15T18:28:06.270Z",
+      "position": {
+        "lat": "46.20644812194458",
+        "lng": "1.1810302734375002"
+      },
+      "notes": ""
+    },
+    {
+      "id": "e904",
+      "cityName": "Brigueil-le-Chantre",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2025-01-15T18:28:11.014Z",
+      "position": {
+        "lat": "46.38293856752681",
+        "lng": "1.0986328125000002"
+      },
+      "notes": ""
+    },
+    {
+      "id": "14c8",
       "cityName": "London",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
-      "date": "2024-12-26T18:24:35.246Z",
+      "date": "2025-01-15T18:38:51.881Z",
       "position": {
-        "lat": "51.369037926712714",
-        "lng": "-0.10299682617187501"
-      },
-      "notes": "b"
-    },
-    {
-      "id": "0684",
-      "cityName": "Cluis",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "2024-12-26T18:24:48.944Z",
-      "position": {
-        "lat": "46.561229857616475",
-        "lng": "1.7138671875000002"
+        "lat": "51.508421934016845",
+        "lng": "-0.08274078369140626"
       },
       "notes": ""
     }
