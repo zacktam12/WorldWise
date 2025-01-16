@@ -27,7 +27,7 @@ function App() {
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
-          <Suspense fallback={SpinnerFullPage}>
+          <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
               <Route index element={<Homepage />} />{" "}
               <Route path="product" element={<Product />} />
